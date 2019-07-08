@@ -39,8 +39,32 @@
 
 
 <script type="text/javascript">
-
 	// your solution here
+    // add a new bubble to the bubble container once a second. Continue to add bubbles until the user clicks the stop button
+    // when recording, load 20 bubbles before clicking stop
+
+//    $(document).ready(function() {
+//        window.setInterval(function() { // JS
+//            $(".shape-container").append("<div class='p2-circle bg-purple'></div>"); // jQuery
+//        }, 1000);
+//        $(".btn").click(function() {
+//            clearInterval();
+//        });
+//    });
+    
+    function appendCircle() {
+        $(".shape-container").append("<div class='p2-circle bg-purple'></div>");
+    }
+    
+    var appendCircleLoop = setInterval(appendCircle, 1000); // returns an ID to be used in clearInterval
+    
+    $(document).ready(function() {
+        $(".btn").click(function() {
+            clearInterval(appendCircleLoop);
+        })
+    });
+    
+    // https://www.w3schools.com/jsref/met_win_setinterval.asp
 
 </script>
 </body>
